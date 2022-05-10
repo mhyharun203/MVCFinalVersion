@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true"
+         executionOrder="random"
+         resolveDependencies="true"
+>
+    <coverage processUncoveredFiles="false">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </coverage>
+    <testsuite name="MvcFinalVersion-main2">
+        <directory>tests/</directory>
+    </testsuite>
+</phpunit>

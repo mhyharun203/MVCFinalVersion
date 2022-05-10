@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Black Jeans",
+    "categoryName": "jeans",
+    "categoryID": 1,
+    "productID": 1,
+    "price": "20€",
+    "description": "A very nice black Jeans with 100% cotton"
+  },
+  {
+    "name": "Blue Jeans",
+    "categoryName": "jeans",
+    "categoryID": 1,
+    "productID": 2,
+    "price": "30€",
+    "description": "A very nice blue Jeans with 100% cotton"
+  },
+  {
+    "name": "Ripped Jeans",
+    "categoryName": "jeans",
+    "categoryID": 1,
+    "productID": 3,
+    "price": "20€",
+    "description": "A very nice black Jeans with 100% cotton"
+  },
+  {
+    "name": "T-Shirt",
+    "categoryName": "shirts",
+    "categoryID": 2,
+    "productID": 4,
+    "price": "20€",
+    "description": "A very nice T-Shirt with a tiny Pocket"
+  },
+  {
+    "name": "Hoodie",
+    "categoryName": "shirts",
+    "categoryID": 2,
+    "productID": 5,
+    "price": "80€",
+    "description": "A very nice Hoody of the brand PhilippistGay"
+  },
+  {
+    "name": "Tank Top",
+    "categoryName": "shirts",
+    "categoryID": 2,
+    "productID": 6,
+    "price": "20€",
+    "description": "made for sunny days and the beach"
+  },
+  {
+    "name": "Long socks",
+    "categoryName": "Socks",
+    "categoryID": 3,
+    "productID": 7,
+    "price": "20€",
+    "description": "Wear this piece when you are going for a run"
+  },
+  {
+    "name": "short Socks",
+    "categoryName": "Socks",
+    "categoryID": 3,
+    "productID": 8,
+    "price": "20€",
+    "description": "made for you best sneakers to look good"
+  },
+  {
+    "name": "Kurwa Socks",
+    "categoryName": "Socks",
+    "categoryID": 3,
+    "productID": 9,
+    "price": "20€",
+    "description": "You are a Kurwa ? this piece is made for you"
+  }
+]
