@@ -5,12 +5,10 @@ namespace AppTest;
 
 use App\Controller\CategoryController;
 use App\Core\PdoConnect;
-use App\Model\Mapper\ProductsMapper;
-use App\Model\ProductRepository;
-use PHPUnit\Framework\TestCase;
-use App\Controller\HomeController;
 use App\Core\View;
-use SebastianBergmann\CodeUnit\Mapper;
+use App\Model\Mapper\ProductsMapper;
+use App\Model\Repository\ProductRepository;
+use PHPUnit\Framework\TestCase;
 use Smarty;
 
 class CategoryControllerTest extends TestCase

@@ -3,21 +3,25 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Core\Container;
 use App\Core\View;
 use App\Model\DTO\ProductsDataTransferObject;
-use App\Model\ProductRepository;
+use App\Model\Repository\ProductRepository;
+use App\Model\EntityManager\EntityManager;
 
 class AdminEditProductController implements ControllerInterface
 {
 
-    private View $view;
+
     private ProductRepository $productRepository;
 
 
-    public function __construct(View $view, ProductRepository $productRepository)
+
+    public function __construct(Container $container, private View $view)
     {
-        $this->view = $view;
-        $this->productRepository = $productRepository;
+
+        $this->productRepository = $container->get(ProductRepository::class);
+        $this->entityManager =  $container->get(EntityManager::class);
     }
 
 
@@ -38,13 +42,17 @@ class AdminEditProductController implements ControllerInterface
 
         if (isset($_POST['updateProduct'])) {
             $name = $_POST['name'];
+            $price = $_POST['price'];
+            $description = $_POST['description'];
             $productDTO = new ProductsDataTransferObject();
             $productDTO->setProductId((int)$productId);
             $productDTO->setName($name);
+            $productDTO->setPrice($price);
+            $productDTO->setDescription($description);
 
-            $this->productRepository->updateData($productDTO);
-
+            $this->entityManager->updateData($productDTO);
         }
     }
+
 
 }

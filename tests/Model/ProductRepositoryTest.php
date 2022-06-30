@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace AppTest\Model;
 
 use App\Model\Mapper\ProductsMapper;
-use App\Model\ProductRepository;
+use App\Model\Repository\ProductRepository;
 use PHPUnit\Framework\TestCase;
 
 class ProductRepositoryTest extends TestCase

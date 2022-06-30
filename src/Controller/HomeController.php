@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Core\Container;
 use App\Core\View;
 
 
 class HomeController implements ControllerInterface
 {
-    private View $view;
 
 
-    public function __construct(View $view)
+
+    public function __construct(Container $container, private View $view)
     {
-        $this->view = $view;
+        
     }
 
     public function render()

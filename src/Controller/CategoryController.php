@@ -3,26 +3,27 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Core\Container;
 use App\Core\View;
-use App\Model\ProductRepository;
+use App\Model\Repository\ProductRepository;
 
 
 class CategoryController implements ControllerInterface
 {
-    private View $view;
+
     private ProductRepository $productRepository;
 
-    public function __construct(View $view, ProductRepository $productRepository)
+    public function __construct(Container $container, private View $view)
     {
-        $this->productRepository = $productRepository;
-        $this->view = $view;
+        $this->productRepository = $container->get(ProductRepository::class);
+
     }
 
 
     public function render()
     {
 
-        $category = '1';
+
         if ($_GET['id'] === '1') {
             $category = 1;
         } elseif ($_GET['id'] === '2') {

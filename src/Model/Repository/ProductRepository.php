@@ -1,12 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Model;
+namespace App\Model\Repository;
 
 use App\Core\PdoConnect;
 use App\Model\DTO\ProductsDataTransferObject;
 use App\Model\Mapper\ProductsMapper;
-use phpDocumentor\Reflection\Types\Object_;
 
 class ProductRepository
 {
@@ -66,14 +65,7 @@ class ProductRepository
         return $productDtoList;
     }
 
-    public function updateData(ProductsDataTransferObject  $productDTO) {
-        $name = $productDTO->getName();
-        $id = $productDTO->getProductId();
 
-        $pdoConnection = $this->pdoConnect->connectToDatabase();
-        $stmt = $pdoConnection->prepare("UPDATE products_list SET name='$name' WHERE productId = '$id'");
-        $stmt->execute();
-    }
 
 
 }

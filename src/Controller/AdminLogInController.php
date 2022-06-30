@@ -4,13 +4,14 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Controller\ControllerInterface;
+use App\Core\Container;
 use App\Core\View;
 
 class AdminLogInController implements ControllerInterface
 {
-    private View $view;
 
-    public function __construct(View $view)
+
+    public function __construct(Container $container, View $view)
     {
         $this->view = $view;
     }
