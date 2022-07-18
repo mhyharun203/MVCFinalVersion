@@ -22,9 +22,9 @@ class AdminHomeController
     public function render()
     {
 
-        $a = $this->productRepository->getAllProducts();
+        $allProducts = $this->productRepository->getAllProducts();
 
-        $this->view->addTemplateParameter('product', $a);
+        $this->view->addTemplateParameter('product', $allProducts);
         $this->view->setTemplate("adminHomeView.tpl");
 
     }

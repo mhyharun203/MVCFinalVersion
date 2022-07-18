@@ -42,7 +42,6 @@ class AdminLogInController implements ControllerInterface
         if ($userNameFromPost === $userNameFromTable && $passwordFromPost === $userPasswordFromTable) {
             $_SESSION['LoggedIn'] = $userNameFromTable;
             header("Location: " . 'index.php?page=AdminHomeController');
-        }else {
         }
     }
 }

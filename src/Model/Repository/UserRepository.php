@@ -26,8 +26,19 @@ class UserRepository
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
          return $this->userMapper->mapToDto($result);
-
     }
 
+
+    public function getAllUser() {
+        $pdoConnection = $this->pdoConnect->connectToDatabase();
+        $stmt = $pdoConnection->prepare("SELECT * FROM user_list");
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $userDtoList = [];
+        foreach ($result as $oneUser) {
+            $userDtoList[] = $this->userMapper->mapToDto($oneUser);
+        }
+        return $userDtoList;
+    }
 
 }

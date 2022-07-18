@@ -7,6 +7,7 @@ use App\Controller\Backend\AdminDeleteProductController;
 use App\Controller\Backend\AdminEditProductController;
 use App\Controller\Backend\AdminHomeController;
 use App\Controller\Backend\AdminLogInController;
+use App\Controller\Backend\AdminManageUserController;
 use App\Controller\Frontend\CategoryController;
 use App\Controller\Frontend\DetailController;
 use App\Controller\Frontend\HomeController;
@@ -24,7 +25,8 @@ final class ControllerProvider
             AdminHomeController::class,
             AdminEditProductController::class,
             AdminDeleteProductController::class,
-            AdminAddProductController::class
+            AdminAddProductController::class,
+            AdminManageUserController::class
         ];
     }
 }
