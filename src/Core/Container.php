@@ -7,12 +7,12 @@ class Container implements ContainerInterface
     private array $parameter;
 
     /**
-     * @param mixed $key
-     * @param mixed $value
+     * @param string $key
+     * @param object $value
      *
      * @return void
      */
-    public function set(mixed $key, mixed $value): void
+    public function set(string $key, object $value): void
     {
         $this->parameter[$key] = $value;
     }
@@ -23,7 +23,7 @@ class Container implements ContainerInterface
      * @return mixed
      * @throws \Exception
      */
-    public function get(mixed $key): mixed
+    public function get(string $key): object
     {
         if (!isset($this->parameter[$key])) {
             throw new \Exception($key . 'Not Found');

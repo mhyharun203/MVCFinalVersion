@@ -3,12 +3,14 @@ declare(strict_types=1);
 
 namespace App\Core;
 
-use App\Controller\AdminEditProductController;
-use App\Controller\AdminHomeController;
-use App\Controller\AdminLogInController;
-use App\Controller\DetailController;
-use App\Controller\CategoryController;
-use App\Controller\HomeController;
+use App\Controller\Backend\AdminDeleteProductController;
+use App\Controller\Backend\AdminEditProductController;
+use App\Controller\Backend\AdminHomeController;
+use App\Controller\Backend\AdminLogInController;
+use App\Controller\Frontend\CategoryController;
+use App\Controller\Frontend\DetailController;
+use App\Controller\Frontend\HomeController;
+use App\Controller\Backend\AdminAddProductController;
 
 final class ControllerProvider
 {
@@ -20,7 +22,9 @@ final class ControllerProvider
             HomeController::class,
             AdminLogInController::class,
             AdminHomeController::class,
-            AdminEditProductController::class
+            AdminEditProductController::class,
+            AdminDeleteProductController::class,
+            AdminAddProductController::class
         ];
     }
 }

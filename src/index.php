@@ -1,5 +1,8 @@
 <?php
 declare(strict_types=1);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 require __DIR__ . '/../vendor/autoload.php';
 
 
@@ -27,9 +30,8 @@ $provider = new ControllerProvider();
 
 
 foreach ($provider->getList() as $class) {
-    if ('App\Controller\\' . $search === $class) {
+    if ('App\Controller\Frontend\\' . $search == $class || 'App\Controller\Backend\\' . $search === $class) {
         $view = new View(new Smarty());
-
         $page = new $class($container, $view);
         $page->render();
         $view->display();

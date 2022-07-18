@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Backend;
 
-use App\Controller\ControllerInterface;
+use App\Controller\Frontend\ControllerInterface;
 use App\Core\Container;
 use App\Core\View;
 

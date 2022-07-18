@@ -5,17 +5,17 @@ namespace App\Core;
 interface ContainerInterface
 {
     /**
-     * @param mixed $key
-     * @param mixed $value
+     * @param string $key
+     * @param object $value
      *
      * @return void
      */
-    public function set(mixed $key, mixed $value): void;
+    public function set(string $key, object $value): void ;
 
     /**
-     * @param mixed $key
+     * @param object $key
      *
      * @return mixed
      */
-    public function get(mixed $key): mixed;
+    public function get(string $key): object;
 }
