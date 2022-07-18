@@ -7,7 +7,7 @@ use App\Controller\Frontend\ControllerInterface;
 use App\Core\Container;
 use App\Core\View;
 use App\Model\DTO\ProductsDataTransferObject;
-use App\Model\EntityManager\EntityManager;
+use App\Model\EntityManager\ProductEntityManager;
 use App\Model\Repository\ProductRepository;
 
 class AdminAddProductController implements ControllerInterface
@@ -18,7 +18,7 @@ class AdminAddProductController implements ControllerInterface
     public function __construct(Container $container, private View $view)
     {
         $this->productRepository = $container->get(ProductRepository::class);
-        $this->entityManager = $container->get(EntityManager::class);
+        $this->entityManager = $container->get(ProductEntityManager::class);
     }
 
     public function render()

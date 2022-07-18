@@ -12,7 +12,7 @@ use App\Core\PdoConnect;
 use App\Core\View;
 use App\Model\Mapper\ProductsMapper;
 use App\Model\Repository\ProductRepository;
-use App\Model\EntityManager\EntityManager;
+use App\Model\EntityManager\ProductEntityManager;
 
 
 $container = new Container();

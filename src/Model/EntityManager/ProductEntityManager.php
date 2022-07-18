@@ -9,7 +9,7 @@ use App\Model\DTO\ProductsDataTransferObject;
 use App\Model\Mapper\ProductsMapper;
 
 
-class EntityManager
+class ProductEntityManager
 {
 
     private PdoConnect $pdoConnect;

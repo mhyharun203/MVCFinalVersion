@@ -6,7 +6,7 @@ namespace App\Controller\Backend;
 use App\Controller\Frontend\ControllerInterface;
 use App\Core\Container;
 use App\Core\View;
-use App\Model\EntityManager\EntityManager;
+use App\Model\EntityManager\ProductEntityManager;
 use App\Model\Repository\ProductRepository;
 
 class AdminDeleteProductController implements ControllerInterface
@@ -16,7 +16,7 @@ class AdminDeleteProductController implements ControllerInterface
     public function __construct(Container $container, private View $view)
     {
         $this->productRepository = $container->get(ProductRepository::class);
-        $this->entityManager = $container->get(EntityManager::class);
+        $this->entityManager = $container->get(ProductEntityManager::class);
     }
 
     public function render()

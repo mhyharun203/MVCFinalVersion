@@ -6,14 +6,17 @@ namespace App\Controller\Backend;
 use App\Controller\Frontend\ControllerInterface;
 use App\Core\Container;
 use App\Core\View;
+use App\Model\Repository\UserRepository;
+
 
 class AdminLogInController implements ControllerInterface
 {
 
+    private UserRepository $userRepository;
 
-    public function __construct(Container $container, View $view)
+    public function __construct(private Container $container, private View $view)
     {
-        $this->view = $view;
+        $this->userRepository = $container->get(UserRepository::class);
     }
 
 
@@ -28,12 +31,18 @@ class AdminLogInController implements ControllerInterface
         if (!isset($_POST['logIn'])) {
             return;
         }
-        $email = $_POST['email'];
-        $testPasswort = 'Harun';
-        $password = $_POST['password'];
-        if ($testPasswort === $password) {
-            $_SESSION['LoggedIn'] = $email;
+
+        $info = $this->userRepository->findUserByName($_POST['userName']);
+
+        $userNameFromTable = $info->getName();
+        $userPasswordFromTable = $info->getPassword();
+        $userNameFromPost = $_POST['userName'];
+        $passwordFromPost = $_POST['password'];
+
+        if ($userNameFromPost === $userNameFromTable && $passwordFromPost === $userPasswordFromTable) {
+            $_SESSION['LoggedIn'] = $userNameFromTable;
             header("Location: " . 'index.php?page=AdminHomeController');
+        }else {
         }
     }
 }
