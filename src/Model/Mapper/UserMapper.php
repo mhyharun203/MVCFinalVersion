@@ -12,6 +12,7 @@ class UserMapper
     {
         $userDto = new UserDataTransferObject();
 
+        $userDto->setId($user['id']);
         $userDto->setName($user['name']);
         $userDto->setEmail($user['email']);
         $userDto->setPassword($user['password']);

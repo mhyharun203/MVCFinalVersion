@@ -21,7 +21,7 @@ class AdminEditProductController implements ControllerInterface
     {
 
         $this->productRepository = $container->get(ProductRepository::class);
-        $this->entityManager = $container->get(ProductEntityManager::class);
+        $this->ProductEntityManager = $container->get(ProductEntityManager::class);
     }
 
 
@@ -50,7 +50,7 @@ class AdminEditProductController implements ControllerInterface
             $productDTO->setPrice($price);
             $productDTO->setDescription($description);
 
-            $this->entityManager->updateData($productDTO);
+            $this->ProductEntityManager->updateData($productDTO);
         }
     }
 

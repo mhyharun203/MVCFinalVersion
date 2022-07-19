@@ -7,7 +7,6 @@ use App\Controller\Frontend\ControllerInterface;
 use App\Core\Container;
 use App\Core\View;
 use App\Model\Repository\UserRepository;
-use http\Client\Curl\User;
 
 
 class AdminManageUserController implements ControllerInterface

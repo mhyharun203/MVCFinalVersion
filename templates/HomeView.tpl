@@ -5,3 +5,4 @@
 
 <p> <a href="/index.php?page=AdminLogInController"> {$AdminArea}</a> </p>
 
+

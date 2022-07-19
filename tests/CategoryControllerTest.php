@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace AppTest;
 
-use App\Controller\CategoryController;
+use App\Controller\Frontend\CategoryController;
 use App\Core\PdoConnect;
 use App\Core\View;
 use App\Model\Mapper\ProductsMapper;

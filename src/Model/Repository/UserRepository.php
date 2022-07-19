@@ -12,9 +12,6 @@ class UserRepository
 {
 
 
-
-
-
     public function __construct(private PdoConnect $pdoConnect, private UserMapper $userMapper)
     {
     }
@@ -25,11 +22,21 @@ class UserRepository
         $stmt = $pdoConnection->prepare("SELECT * FROM user_list WHERE name = '$name'");
         $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-         return $this->userMapper->mapToDto($result);
+        return $this->userMapper->mapToDto($result);
+    }
+
+    public function findUserById($id)
+    {
+        $pdoConnection = $this->pdoConnect->connectToDatabase();
+        $stmt = $pdoConnection->prepare("SELECT * FROM user_list WHERE id = '$id'");
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $this->userMapper->mapToDto($result);
     }
 
 
-    public function getAllUser() {
+    public function getAllUser()
+    {
         $pdoConnection = $this->pdoConnect->connectToDatabase();
         $stmt = $pdoConnection->prepare("SELECT * FROM user_list");
         $stmt->execute();

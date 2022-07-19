@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use App\Controller\Frontend\DetailController;
 use App\Core\View;
-use App\Controller\DetailController;
 
 class  DetailControllerTest extends \PHPUnit\Framework\TestCase
 

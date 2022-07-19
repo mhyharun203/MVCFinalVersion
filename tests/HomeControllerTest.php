@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
+use App\Controller\Frontend\HomeController;
 use App\Core\View;
-use App\Controller\HomeController;
 
 class  HomeControllerTest extends \PHPUnit\Framework\TestCase
 {

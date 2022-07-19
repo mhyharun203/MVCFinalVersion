@@ -16,7 +16,7 @@ class AdminDeleteProductController implements ControllerInterface
     public function __construct(Container $container, private View $view)
     {
         $this->productRepository = $container->get(ProductRepository::class);
-        $this->entityManager = $container->get(ProductEntityManager::class);
+        $this->ProductEntityManager = $container->get(ProductEntityManager::class);
     }
 
     public function render()
@@ -30,7 +30,7 @@ class AdminDeleteProductController implements ControllerInterface
     public function deleteProduct($productId)
     {
         if (isset($_POST['deleteProduct'])) {
-            $this->entityManager->deleteProduct($productId);
+            $this->ProductEntityManager->deleteProduct($productId);
         }
     }
 

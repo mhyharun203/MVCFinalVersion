@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 namespace App\Core;
 
+use App\Controller\Backend\AdminAddUserController;
 use App\Controller\Backend\AdminDeleteProductController;
+use App\Controller\Backend\AdminDeleteUserController;
 use App\Controller\Backend\AdminEditProductController;
+use App\Controller\Backend\AdminEditUserController;
 use App\Controller\Backend\AdminHomeController;
 use App\Controller\Backend\AdminLogInController;
 use App\Controller\Backend\AdminManageUserController;
@@ -26,7 +29,10 @@ final class ControllerProvider
             AdminEditProductController::class,
             AdminDeleteProductController::class,
             AdminAddProductController::class,
-            AdminManageUserController::class
+            AdminManageUserController::class,
+            AdminEditUserController::class,
+            AdminDeleteUserController::class,
+            AdminAddUserController::class
         ];
     }
 }

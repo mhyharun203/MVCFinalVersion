@@ -12,5 +12,9 @@
     <input type="submit" name="updateProduct" value="Update Product">
 </form>
 
+<h2>{$product->getName()}</h2>
 
 
+<form action="index.php?page=AdminDeleteProductController&id={$product->getProductId()}" method="post">
+    <input type="submit" name="deleteProduct" value="Delete Product">
+</form>
