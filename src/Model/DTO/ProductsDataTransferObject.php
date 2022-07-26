@@ -11,6 +11,23 @@ class ProductsDataTransferObject
     private int $productId;
     private string $price;
     private string $description;
+    private string $art;
+
+    /**
+     * @return string
+     */
+    public function getArt(): string
+    {
+        return $this->art;
+    }
+
+    /**
+     * @param string $art
+     */
+    public function setArt(string $art): void
+    {
+        $this->art = $art;
+    }
 
     /**
      * @return string
