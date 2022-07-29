@@ -10,9 +10,8 @@ class ProductArrayToDtoMapper
 {
 
 
-    public function category(array $records): ProductsDataTransferObject
+    public function product(array $records): ProductsDataTransferObject
     {
-
 
 
         $productDto = new ProductsDataTransferObject();
@@ -22,6 +21,7 @@ class ProductArrayToDtoMapper
         $productDto->setPrice($records['price']);
         $productDto->setCategoryName($records['categoryName']);
         $productDto->setDescription($records['description']);
+        $productDto->setCategoryId(0);
 
         return $productDto;
     }
