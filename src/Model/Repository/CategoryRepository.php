@@ -4,31 +4,31 @@ declare(strict_types=1);
 namespace App\Model\Repository;
 
 use App\Core\PdoConnect;
+use App\Model\Mapper\CategoryCsvToDtoMapper;
+use App\Model\Mapper\CategoryDatabaseToDtoMapper;
 
 class CategoryRepository
 {
     private PdoConnect $pdoConnect;
 
-    public function __construct(PdoConnect $pdoConnect)
+    public function __construct(CategoryDatabaseToDtoMapper $categoryMapper, PdoConnect $pdoConnect)
     {
+        $this->categoryMapper = $categoryMapper;
         $this->pdoConnect = $pdoConnect;
     }
 
-    public function findAllById($categoryID)
+    public function findCategoryByName($name)
     {
 
 
-
-        $productsAsString = file_get_contents(__DIR__ . '/../products.json');
-
-        $productsArray = json_decode($productsAsString, true);
-        foreach ($productsArray as $oneCategroy) {
-            if ($oneCategroy['categoryID'] === $categoryID) {
-                $searchedCategory = "categoryname = " . $oneCategroy['categoryName'] . ", CategoryId =" . $oneCategroy['categoryID'];
-
-            }
-
+        $pdoConnection = $this->pdoConnect->connectToDatabase();
+        $stmt = $pdoConnection->prepare("SELECT * FROM category_list WHERE name = '$name'");
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        if ($result === FALSE) {
+            return null;
         }
-        return $searchedCategory;
+        return $this->categoryMapper->mapToDto($result);
+
     }
 }

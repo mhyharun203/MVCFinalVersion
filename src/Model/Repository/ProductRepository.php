@@ -42,6 +42,7 @@ class ProductRepository
         $stmt = $pdoConnection->prepare("SELECT * FROM products_list WHERE categoryId = '$categoryId'");
         $stmt->execute();
         $result = $stmt->fetchAll();
+        $productDtoList = [];
         foreach ($result as $oneCategory) {
             if ($oneCategory['categoryId'] === $categoryId) {
                 $productDtoList[] = $this->productsMapper->mapToDto($oneCategory);
@@ -59,13 +60,27 @@ class ProductRepository
         $result = $stmt->fetchAll();
         $productDtoList = [];
         foreach ($result as $oneCategory) {
-                $productDtoList[] = $this->productsMapper->mapToDto($oneCategory);
-            }
+            $productDtoList[] = $this->productsMapper->mapToDto($oneCategory);
+        }
 
         return $productDtoList;
     }
 
+    public function findProductByName($productName)
+    {
+        $pdoConnection = $this->pdoConnect->connectToDatabase();
 
+        $stmt = $pdoConnection->prepare("SELECT * FROM products_list WHERE name = '$productName'");
+        $stmt->execute();
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+        if ($result === FALSE) {
+            return NULL;
+        }
+
+
+        return $this->productsMapper->mapToDto($result);
+    }
 
 
 }
